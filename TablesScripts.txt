@@ -1,0 +1,61 @@
+--USE DbDapperRealEstate
+
+--create table Category
+--(
+--CategoryID int primary key identity(1,1),
+--CategoryName Nvarchar(50),
+--CategoryStatus bit
+
+--)
+
+
+--create table Product
+--(
+--ProductID int primary key identity(1,1),
+--Title Nvarchar(50),
+--Price decimal(18,2),
+--CoverImage Nvarchar(100),
+--City Nvarchar(100),
+--District Nvarchar(100),
+--Address nvarchar(500),
+--Description Nvarchar(max),
+--ProductCategory int
+
+--)
+
+--create table ProductDetails
+--(
+--ProductDetailID int primary key identity(1,1),
+--ProductSize int,
+--BedRoomCount tinyint,
+--BathRoomCount tinyint,
+--RoomCount tinyint,
+--GarageSize tinyint,
+--BuildYear char(4),
+--Price decimal(18,2),
+--Location Nvarchar(500),
+--VideoUrl Nvarchar(500),
+--ProductID int,
+
+--)
+
+--create table Client
+--(
+--ClientID int primary key identity(1,1),
+--Name Nvarchar(100),
+--Title Nvarchar(100),
+--Comment Nvarchar(2000),
+
+--)
+
+
+--create table Employee
+--(
+--EmployeeID int primary key identity(1,1),
+--Name Nvarchar(100),
+--Title Nvarchar(100),
+--Mail Nvarchar(100),
+--PhotoNumber Nvarchar(100),
+--ImageUrl Nvarchar(100),
+--Status bit
+--)
