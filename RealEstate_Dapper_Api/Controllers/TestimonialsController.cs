@@ -16,6 +16,7 @@ namespace RealEstate_Dapper_Api.Controllers
         }
 
         [HttpGet]
+        [Route("TestimonailList")]
         public async Task<IActionResult> TestimonailList()
         {
             var value = await _testimonialRepository.GetAllTestimonialAsync();

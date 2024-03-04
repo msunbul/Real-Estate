@@ -59,3 +59,30 @@
 --ImageUrl Nvarchar(100),
 --Status bit
 --)
+
+
+
+--create table BottomGrid
+--(
+--BottomGridID int primary key identity(1,1),
+--Icon Nvarchar(100),
+--Title Nvarchar(100),
+--Description Nvarchar(250),
+--)
+
+
+--create table PopularLocation
+--(
+--LocationID int primary key identity(1,1),
+--CityName Nvarchar(50),
+--ImageUrl Nvarchar(500),
+--)
+
+--create table Testimonial
+--(
+--TestimonialID int primary key identity(1,1),
+--NameSurname Nvarchar(50),
+--Title Nvarchar(50),
+--Comment Nvarchar(500),
+--Status bit
+--)

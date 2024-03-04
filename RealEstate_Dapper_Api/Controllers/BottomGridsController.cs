@@ -17,30 +17,35 @@ namespace RealEstate_Dapper_Api.Controllers
         }
 
         [HttpGet]
+        [Route("BottomGridList")]
         public async Task<IActionResult> BottomGridList()
         {
             var values = await _bottomGridRepository.GetAllBottomGridAsync();
             return Ok(values);
         }
         [HttpPost]
+        [Route("CreateBottomGrid")]
         public async Task<IActionResult> CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
         {
             _bottomGridRepository.CreateBottomGrid(createBottomGridDto);
             return Ok("Veri Başarılı Bir Şekilde Eklendi");
         }
-        [HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("DeleteBottomGrid/{id}")]
         public async Task<IActionResult> DeleteBottomGrid(int id)
         {
             _bottomGridRepository.DeleteBottomGrid(id);
             return Ok("Veri Başarılı Bir Şekilde Silindi");
         }
         [HttpPut]
+        [Route("UpdateBottomGrid")]
         public async Task<IActionResult> UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto)
         {
             _bottomGridRepository.UpdateBottomGrid(updateBottomGridDto);
             return Ok("Veri Başarıyla Güncellendi");
         }
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("GetBottomGrid/{id}")]
         public async Task<IActionResult> GetBottomGrid(int id)
         {
             var value = await _bottomGridRepository.GetBottomGrid(id);

@@ -17,30 +17,35 @@ namespace RealEstate_Dapper_Api.Controllers
         }
 
         [HttpGet]
+        [Route("PopularLocationList")]
         public async Task<IActionResult> PopularLocationList()
         {
             var value = await _locationRepository.GetAllPopularLocationAsync();
             return Ok(value);
         }
         [HttpPost]
+        [Route("CreatePopularLocation")]
         public async Task<IActionResult> CreatePopularLocation(CreatePopularLocationDto createPopularLocationDto)
         {
             _locationRepository.CreatePopularLocation(createPopularLocationDto);
             return Ok("Lokasyon Kısmı Başarılı Bir Şekilde Eklendi");
         }
-        [HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("DeletePopularLocation/{id}")]
         public async Task<IActionResult> DeletePopularLocation(int id)
         {
             _locationRepository.DeletePopularLocation(id);
             return Ok("Lokasyon Kısmı Başarılı Bir Şekilde Silindi");
         }
         [HttpPut]
+        [Route("UpdatePopularLocation")]
         public async Task<IActionResult> UpdatePopularLocation(UpdatePopularLocationDto updatePopularLocationDto)
         {
             _locationRepository.UpdatePopularLocation(updatePopularLocationDto);
             return Ok("Lokasyon Kısmı Başarıyla Güncellendi");
         }
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("GetPopularLocation/{id}")]
         public async Task<IActionResult> GetPopularLocation(int id)
         {
             var value = await _locationRepository.GetPopularLocation(id);
