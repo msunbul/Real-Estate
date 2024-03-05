@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RealEstate_Dapper_UI.Dtos.PopularLocationDtos;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-
 
 
 namespace RealEstate_Dapper_UI.ViewComponents.HomePage
@@ -21,7 +17,7 @@ namespace RealEstate_Dapper_UI.ViewComponents.HomePage
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44357/api/PopularLocations/PopularLocationList");
+            var responseMessage = await client.GetAsync("https://localhost:7264/api/PopularLocations/PopularLocationList");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var JsonData = await responseMessage.Content.ReadAsStringAsync();

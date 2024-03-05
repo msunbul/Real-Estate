@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using RealEstate_Dapper_Api.Repositories.CategoryRepository;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using RealEstate_Dapper_Api.Repositories.ProductRepository;
 
 namespace RealEstate_Dapper_Api.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
-    public class ProductsController : Controller
+    [ApiController]
+    public class ProductsController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
 
@@ -17,17 +17,46 @@ namespace RealEstate_Dapper_Api.Controllers
 
         [HttpGet]
         [Route("ProductList")]
-        public async Task<IActionResult> ProductList()
+        public async  Task<IActionResult> ProductList()
         {
-            var values=await _productRepository.GetAllProductAsync();
+            var values = await _productRepository.GetAllProductAsync();
             return Ok(values);
+            
         }
-
         [HttpGet]
         [Route("ProductListWithCategory")]
         public async Task<IActionResult> ProductListWithCategory()
         {
             var values = await _productRepository.GetAllProductWithCategoryAsync();
+            return Ok(values);
+        }
+        [HttpGet]
+        [Route("ProductDealOfTheDayStatusChangeToTrue/{id}")]
+        public async Task<IActionResult> ProductDealOfTheDayStatusChangeToTrue(int id)
+        {
+            _productRepository.ProductDealOfTheDayStatusChangeToTrue(id);
+            return Ok("İlan Günün Fırsatları Arasına Eklendi");
+        }
+
+        [HttpGet]
+        [Route("ProductDealOfTheDayStatusChangeToFalse/{id}")]
+        public async Task<IActionResult> ProductDealOfTheDayStatusChangeToFalse(int id)
+        {
+            _productRepository.ProductDealOfTheDayStatusChangeToFalse(id);
+            return Ok("İlan Günün Fırsatları Arasından Çıkarıldı");
+        }
+        [HttpGet]
+        [Route("Last5ProductList")]
+        public async Task<IActionResult> Last5ProductList()
+        {
+            var values = await _productRepository.GetLast5ProductAsync();
+            return Ok(values);
+        }
+        [HttpGet]
+        [Route("ProductAdvertsListsByEmployee")]
+        public async Task<IActionResult> ProductAdvertsListsByEmployee(int id)
+        {
+            var values = await _productRepository.GetProductAdvertListByEmployeeAsync(id);
             return Ok(values);
         }
     }

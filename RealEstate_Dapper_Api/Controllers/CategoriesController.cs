@@ -1,11 +1,12 @@
+ï»¿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RealEstate_Dapper_Api.Dtos.CategoryDtos;
 using RealEstate_Dapper_Api.Repositories.CategoryRepository;
 
 namespace RealEstate_Dapper_Api.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryRepository _categoryRepository;
@@ -14,7 +15,6 @@ namespace RealEstate_Dapper_Api.Controllers
         {
             _categoryRepository = categoryRepository;
         }
-
         [HttpGet]
         [Route("CategoryList")]
         public async Task<IActionResult> CategoryList()
@@ -22,37 +22,33 @@ namespace RealEstate_Dapper_Api.Controllers
             var values = await _categoryRepository.GetAllCategoryAsync();
             return Ok(values);
         }
-
         [HttpPost]
         [Route("CreateCategory")]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
         {
             _categoryRepository.CreateCategory(createCategoryDto);
-            return Ok("Kategory baþarýlý bir þekilde eklendi.");
+            return Ok("Kategori BaÅŸarÄ±lÄ± Bir Åžekilde Eklendi");
         }
-
         [HttpDelete]
         [Route("DeleteCategory/{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             _categoryRepository.DeleteCategory(id);
-            return Ok("Kategory baþarýlý bir þekilde silindi.");
+            return Ok("Kategori Silindi");     
         }
-
         [HttpPut]
         [Route("UpdateCategory")]
-        public async Task<IActionResult> UpdateCategory(UpdateCategoryDto categoryDto)
+        public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
-            _categoryRepository.UpdateCategory(categoryDto);
-            return Ok("Kategory baþarýlý bir þekilde güncellenmiþtir.");
+            _categoryRepository.UpdateCategory(updateCategoryDto);
+            return Ok("Kategori BaÅŸarÄ±yla GÃ¼ncellendi");
         }
-
-        [HttpGet()]
+        [HttpGet]
         [Route("GetCategory/{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
-            var values = await _categoryRepository.GetCategory(id);
-            return Ok(values);
+            var value = await _categoryRepository.GetCategory(id);
+            return Ok(value);
         }
     }
 }

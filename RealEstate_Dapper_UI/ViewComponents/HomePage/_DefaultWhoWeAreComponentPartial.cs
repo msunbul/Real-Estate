@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
 using RealEstate_Dapper_UI.Dtos.ServiceDtos;
 using RealEstate_Dapper_UI.Dtos.WhoWeAreDtos;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
+
 
 namespace RealEstate_Dapper_UI.ViewComponents.HomePage
 {
@@ -23,15 +21,15 @@ namespace RealEstate_Dapper_UI.ViewComponents.HomePage
             var client = _httpClientFactory.CreateClient();
             var client2 = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync("https://localhost:44357/api/WhoWeAreDetail/WhoWeAreDetailList");
-            var responseMessage2 = await client2.GetAsync("https://localhost:44357/api/Services/GetServiceList");
+            var responseMessage = await client.GetAsync("https://localhost:7264/api/WhoWeAreDetail/WhoWeAreDetailList");
+            var responseMessage2 = await client2.GetAsync("https://localhost:7264/api/Services/GetServiceList");
 
             if (responseMessage.IsSuccessStatusCode && responseMessage2.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
 
-                var value = JsonConvert.DeserializeObject<List<ResultWhoWeAreDetailDto>>(jsonData).ToList();
+                var value = JsonConvert.DeserializeObject<List<ResultWhoWeAreDetailDto>>(jsonData);
                 var value2 = JsonConvert.DeserializeObject<List<ResultServiceDto>>(jsonData2);
 
                 ViewBag.title = value.Select(x => x.Title).FirstOrDefault();

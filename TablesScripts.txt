@@ -1,13 +1,17 @@
 --USE DbDapperRealEstate
 
+---- bir şemadaki tabloları veren sorgu
+--SELECT *
+--FROM information_schema.tables
+--WHERE table_schema = 'Dbo';
+
+
 --create table Category
 --(
 --CategoryID int primary key identity(1,1),
 --CategoryName Nvarchar(50),
 --CategoryStatus bit
-
 --)
-
 
 --create table Product
 --(
@@ -20,7 +24,6 @@
 --Address nvarchar(500),
 --Description Nvarchar(max),
 --ProductCategory int
-
 --)
 
 --create table ProductDetails
@@ -36,7 +39,6 @@
 --Location Nvarchar(500),
 --VideoUrl Nvarchar(500),
 --ProductID int,
-
 --)
 
 --create table Client
@@ -47,7 +49,6 @@
 --Comment Nvarchar(2000),
 
 --)
-
 
 --create table Employee
 --(
@@ -60,8 +61,6 @@
 --Status bit
 --)
 
-
-
 --create table BottomGrid
 --(
 --BottomGridID int primary key identity(1,1),
@@ -69,7 +68,6 @@
 --Title Nvarchar(100),
 --Description Nvarchar(250),
 --)
-
 
 --create table PopularLocation
 --(
@@ -86,3 +84,50 @@
 --Comment Nvarchar(500),
 --Status bit
 --)
+
+--create table SubFeature
+--(
+--SubFeatureID int primary key identity(1,1),
+--Icon Nvarchar(100),
+--TopTitle Nvarchar(100),
+--MainTitle Nvarchar(100),
+--Description Nvarchar(100),
+--SubTitle Nvarchar(100),
+--)
+
+--create table MailSubscribe
+--(
+--MailID int primary key identity(1,1),
+--Email Nvarchar(100),
+--)
+
+--create table SocialMedia
+--(
+--SocialMediaID int primary key identity(1,1),
+--Name Nvarchar(100),
+--Icon Nvarchar(100),
+--SocialMediaUrl Nvarchar(200),
+--)
+
+--create table Contact
+--(
+--ContactID int primary key identity(1,1),
+--Name Nvarchar(100),
+--Subject Nvarchar(100),
+--Email Nvarchar(100),
+--Message Nvarchar(MAX),
+--)
+
+--create table Address
+--(
+--AddressID int primary key identity(1,1),
+--AddressTitle1 Nvarchar(100),
+--Description Nvarchar(200),
+--AddressTitle2 Nvarchar(100),
+--Phone1 Nvarchar(50),
+--Phone2 Nvarchar(50),
+--Email Nvarchar(100),
+--Location Nvarchar(500),
+--)
+
+

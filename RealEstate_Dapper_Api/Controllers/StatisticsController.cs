@@ -14,99 +14,115 @@ namespace RealEstate_Dapper_Api.Controllers
             _statisticsRepository = statisticsRepository;
         }
 
-        [HttpGet("ActiveCategoryCount")]
+        [HttpGet]
+        [Route("ActiveCategoryCount")]
         public IActionResult ActiveCategoryCount()
         {
             return Ok(_statisticsRepository.ActiveCategoryCount());
         }
 
-        [HttpGet("ActiveEmployeeCount")]
+        [HttpGet]
+        [Route("ActiveEmployeeCount")]
         public IActionResult ActiveEmployeeCount()
         {
             return Ok(_statisticsRepository.ActiveEmployeeCount());
 
         }
-        [HttpGet("ApartmentCount")]
+        [HttpGet]
+        [Route("ApartmentCount")]
         public IActionResult ApartmentCount()
         {
             return Ok(_statisticsRepository.ActiveEmployeeCount());
 
         }
 
-        [HttpGet("AverageProductPriceByRent")]
+        [HttpGet]
+        [Route("AverageProductPriceByRent")]
         public IActionResult AverageProductPriceByRent()
         {
             return Ok(_statisticsRepository.AverageProductPriceByRent());
         }
 
-        [HttpGet("AverageProductPriceBySale")]
+        [HttpGet]
+        [Route("AverageProductPriceBySale")]
         public IActionResult AverageProductPriceBySale()
         {
             return Ok(_statisticsRepository.AverageProductPriceBySale());
         }
 
-        [HttpGet("AverageRoomCount")]
+        [HttpGet]
+        [Route("AverageRoomCount")]
         public IActionResult AverageRoomCount()
         {
             return Ok(_statisticsRepository.AverageRoomCount());
         }
 
-        [HttpGet("CategoryCount")]
+        [HttpGet]
+        [Route("CategoryCount")]
         public IActionResult CategoryCount()
         {
             return Ok(_statisticsRepository.CategoryCount());
         }
 
-        [HttpGet("CategoryNameByMaxProductCount")]
+        [HttpGet]
+        [Route("CategoryNameByMaxProductCount")]
         public IActionResult CategoryNameByMaxProductCount()
         {
             return Ok(_statisticsRepository.CategoryNameByMaxProductCount());
         }
 
-        [HttpGet("CityNameByMaxProductCount")]
+        [HttpGet]
+        [Route("CityNameByMaxProductCount")]
         public IActionResult CityNameByMaxProductCount()
         {
             return Ok(_statisticsRepository.CityNameByMaxProductCount());   
         }
 
-        [HttpGet("DifferentCityCount")]
+        [HttpGet]
+        [Route("DifferentCityCount")]
         public IActionResult DifferentCityCount()
         {
             return Ok(_statisticsRepository.DifferentCityCount());
         }
 
-        [HttpGet("EmployeeNameByMaxProductCount")]
+        [HttpGet]
+        [Route("EmployeeNameByMaxProductCount")]
         public IActionResult EmployeeNameByMaxProductCount()
         {
             return Ok(_statisticsRepository.EmployeeNameByMaxProductCount());
         }
 
-        [HttpGet("LastProductPrice")]
+        [HttpGet]
+        [Route("LastProductPrice")]
         public IActionResult LastProductPrice()
         {
             return Ok(_statisticsRepository.LastProductPrice());
         }
 
-        [HttpGet("NewestBuildingYear")]
+        [HttpGet]
+        [Route("NewestBuildingYear")]
         public IActionResult NewestBuildingYear()
         {
             return Ok(_statisticsRepository.NewestBuildingYear());
         }
 
 
-        [HttpGet("OldestBuildingYear")]
+        [HttpGet]
+        [Route("OldestBuildingYear")]
         public IActionResult OldestBuildingYear()
         {
             return Ok(_statisticsRepository.OldestBuildingYear());
         }
 
-        [HttpGet("PassiveCategoryCount")]
+        [HttpGet]
+        [Route("PassiveCategoryCount")]
         public IActionResult PassiveCategoryCount()
         {
             return Ok(_statisticsRepository.PassiveCategoryCount());
         }
 
-        [HttpGet("ProductCount")]
+        [HttpGet]
+        [Route("ProductCount")]
         public IActionResult ProductCount()
         {
             return Ok(_statisticsRepository.ProductCount());

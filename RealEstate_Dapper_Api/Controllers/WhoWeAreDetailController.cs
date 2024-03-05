@@ -29,7 +29,6 @@ namespace RealEstate_Dapper_Api.Controllers
             _whoWeAreDetailRepository.CreateWhoWeAreDetail(createWhoWeAreDetailDto);
             return Ok("Hakkımızda Kısmı Başarılı Bir Şekilde Eklendi");
         }
-
         [HttpDelete]
         [Route("DeleteWhoWeAreDetail/{id}")]
         public async Task<IActionResult> DeleteWhoWeAreDetail(int id)
@@ -37,8 +36,6 @@ namespace RealEstate_Dapper_Api.Controllers
             _whoWeAreDetailRepository.DeleteWhoWeAreDetail(id);
             return Ok("Hakkımızda Kısmı Başarılı Bir Şekilde Silindi");
         }
-
-
         [HttpPut]
         [Route("UpdateWhoWeAreDetail")]
         public async Task<IActionResult> UpdateWhoWeAreDetail(UpdateWhoWeAreDetailDto updateWhoWeAreDetailDto)
@@ -46,8 +43,6 @@ namespace RealEstate_Dapper_Api.Controllers
             _whoWeAreDetailRepository.UpdateWhoWeAreDetail(updateWhoWeAreDetailDto);
             return Ok("Hakkımızda Kısmı Başarıyla Güncellendi");
         }
-
-
         [HttpGet]
         [Route("GetWhoWeAreDetail/{id}")]
         public async Task<IActionResult> GetWhoWeAreDetail(int id)
