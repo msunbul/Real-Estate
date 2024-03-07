@@ -43,21 +43,36 @@ namespace RealEstate_Dapper_Api.Repositories.StatisticsRepositories
 
         public decimal AverageProductPriceByRent()
         {
-            string query = "Select Avg(Price) From Product where Type='Kiralık'";
+            string query = "Select Avg(Price) From Product where Type='Kiralik'";
             using (var connection = _context.CreateConnection())
             {
-                var values = connection.QueryFirstOrDefault<decimal>(query);
-                return values;
+                var value = connection.QueryFirstOrDefault<decimal?>(query);
+
+                if (value.HasValue)
+                {
+                    return value.Value;
+                }
+                else
+                {
+                    return 0; // veya başka bir varsayılan değer
+                }
             }
         }
 
         public decimal AverageProductPriceBySale()
         {
-            string query = "Select Avg(Price) From Product where Type='Satılık'";
+            string query = "Select Avg(Price) From Product where Type='Satilik'";
             using (var connection = _context.CreateConnection())
             {
-                var values = connection.QueryFirstOrDefault<decimal>(query);
-                return values;
+                var values = connection.QueryFirstOrDefault<decimal?>(query);
+                if (values.HasValue)
+                {
+                    return values.Value;
+                }
+                else
+                {
+                    return 0; // veya başka bir varsayılan değer
+                }
             }
         }
 
@@ -66,8 +81,15 @@ namespace RealEstate_Dapper_Api.Repositories.StatisticsRepositories
             string query = "Select Avg(RoomCount) From ProductDetails";
             using (var connection = _context.CreateConnection())
             {
-                var values = connection.QueryFirstOrDefault<int>(query);
-                return values;
+                var values = connection.QueryFirstOrDefault<int?>(query);
+                if (values.HasValue)
+                {
+                    return values.Value;
+                }
+                else
+                {
+                    return 0; // veya başka bir varsayılan değer
+                }
             }
         }
 
@@ -76,8 +98,15 @@ namespace RealEstate_Dapper_Api.Repositories.StatisticsRepositories
             string query = "Select Count(*) From Category";
             using (var connection = _context.CreateConnection())
             {
-                var values = connection.QueryFirstOrDefault<int>(query);
-                return values;
+                var values = connection.QueryFirstOrDefault<int?>(query);
+                if (values.HasValue)
+                {
+                    return values.Value;
+                }
+                else
+                {
+                    return 0; // veya başka bir varsayılan değer
+                }
             }
         }
 
