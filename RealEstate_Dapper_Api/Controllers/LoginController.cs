@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RealEstate_Dapper_Api.Dtos.LoginDtos;
 using RealEstate_Dapper_Api.Models.DapperContext;
@@ -19,6 +18,7 @@ namespace RealEstate_Dapper_Api.Controllers
         }
 
         [HttpPost]
+        [Route("SignIn")]
         public async Task<IActionResult> SignIn(CreateLoginDto loginDto)
         {
             string query = "Select * From AppUser Where Username=@username and Password=@password";

@@ -59,7 +59,7 @@ app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+ 
 app.MapControllers();
 app.MapHub<SignalRHub>("/signalrhub");
 
